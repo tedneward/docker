@@ -1,6 +1,6 @@
 FROM tedneward/node
 
-RUN npm install -g purescript gulp bower
+RUN npm install -g purescript pulp bower
 
 USER node
 WORKDIR /home/node

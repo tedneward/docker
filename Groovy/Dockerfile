@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM tedneward/java
 
 ENV GROOVY_VERSION=2.4.12
 ENV GROOVY_HOME=/usr/local/groovy-${GROOVY_VERSION}

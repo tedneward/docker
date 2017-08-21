@@ -1,4 +1,4 @@
-FROM openjdk
+FROM tedneward/java
 
 ENV BALLERINAVER=0.91
 

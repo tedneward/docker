@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM tedneward/java
 
 ENV KOTLIN_VERSION=1.1.3-2
 ENV KOTLIN_HOME=/usr/local/kotlin
