@@ -1,13 +1,13 @@
 FROM tedneward/java
 
-ENV BALLERINAVER=0.91
+ENV BALLERINA_VER=0.91
 
-ADD https://ballerinalang.org/downloads/ballerina-tools/ballerina-tools-0.91.zip /usr/local
-RUN cd /usr/local; unzip ballerina-tools-${BALLERINAVER}.zip
+RUN curl -fsSL -o /tmp/ballerina-tools-${BALLERINA_VER}.zip https://ballerinalang.org/downloads/ballerina-tools/ballerina-tools-${BALLERINA_VER}.zip && \ 
+  unzip -d /usr/local /tmp/ballerina-tools-${BALLERINA_VER}.zip
 
-ENV BALLERINA_HOME=/usr/local/ballerina-tools-${BALLERINAVER}
+ENV BALLERINA_HOME=/usr/local/ballerina-tools-${BALLERINA_VER}
 ENV PATH=$BALLERINA_HOME/bin:$PATH
 
 EXPOSE 9090
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
