@@ -15,5 +15,8 @@ process_folder() {
   done
 }
 
-docker login
+# DOCKER_PASS must hold the password for the DockerHub registry
+# in order for images to be pushed
+#
+docker login --username=tedneward --password=$DOCKER_PASS
 process_folder
