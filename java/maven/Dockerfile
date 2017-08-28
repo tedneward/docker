@@ -1,4 +1,5 @@
 FROM tedneward/java
+MAINTAINER Ted Neward <ted@tedneward.com>
 
 ENV MAVEN_VER=3.5.0
 

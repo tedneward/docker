@@ -1,4 +1,5 @@
 FROM tedneward/java
+MAINTAINER Ted Neward <ted@tedneward.com>
 
 ENV BALLERINA_VER=0.91
 

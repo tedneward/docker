@@ -1,4 +1,5 @@
 FROM gcc
+MAINTAINER Ted Neward <ted@tedneward.com>
 
 # Build OOC to start with
 #

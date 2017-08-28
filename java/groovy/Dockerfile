@@ -1,4 +1,5 @@
 FROM tedneward/java
+MAINTAINER Ted Neward <ted@tedneward.com>
 
 ENV GROOVY_VERSION=2.4.12
 ENV GROOVY_HOME=/usr/local/groovy-${GROOVY_VERSION}

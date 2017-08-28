@@ -1,4 +1,5 @@
 FROM ubuntu
+MAINTAINER Ted Neward <ted@tedneward.com>
 
 RUN apt-get update && \
   apt-get install -y clisp
