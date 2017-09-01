@@ -12,6 +12,8 @@ RUN mvn archetype:generate \
   cd demoApp && \
   mvn clean install
 
+WORKDIR /home/maven
+
 EXPOSE 9090
 
 ENTRYPOINT ["/bin/bash"]
