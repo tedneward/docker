@@ -1,7 +1,7 @@
 FROM tedneward/java
 MAINTAINER Ted Neward <ted@tedneward.com>
 
-ENV BALLERINA_VER=0.91
+ENV BALLERINA_VER=0.93
 
 RUN curl -fsSL -o /tmp/ballerina-tools-${BALLERINA_VER}.zip https://ballerinalang.org/downloads/ballerina-tools/ballerina-tools-${BALLERINA_VER}.zip && \ 
   unzip -d /usr/local /tmp/ballerina-tools-${BALLERINA_VER}.zip
