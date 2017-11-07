@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:9
 MAINTAINER Ted Neward <ted@tedneward.com>
 
 RUN groupadd --gid 1000 java \
