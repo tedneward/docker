@@ -8,16 +8,9 @@ This is a repository to store all of the "base" Dockerfiles I use. Any of my Doc
 
 ## Images to build
 
-* Haskell/Cabal
-* Cassandra
 * Ceylon
 * Chaiscript
-* Common Lisp
-* CouchDB
-* Crystal
 * Dart
-* Datomic
-* Elixir
 * D
 * Fantom
 * Erlang
@@ -35,23 +28,15 @@ This is a repository to store all of the "base" Dockerfiles I use. Any of my Doc
 * JRuby
 * Julia (?)
 * Clojure/Leiningen
-* LevelDB
 * LLVM (?)
-* MongoDB
 * Neko/Haxe
-* Neo4J
 * Nim/Nimrod/whatever-they're-calling-it-today
 * Nu
 * OCaml
-* OrientDB
-* PostgresQL
-* MySQL
 * Plt-Racket (?)
 * Python
 * RabbitMQ
 * Racket
-* RethinkDB
-* Swift
 * Rust
 * Ruby
 * SMLNJ
@@ -59,3 +44,13 @@ This is a repository to store all of the "base" Dockerfiles I use. Any of my Doc
 * SWI-Prolog
 * VertX
 * Yeti
+* Cassandra
+* CouchDB
+* Datomic
+* LevelDB
+* MongoDB
+* Neo4J
+* OrientDB
+* PostgresQL
+* MySQL
+* RethinkDB
