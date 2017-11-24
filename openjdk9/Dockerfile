@@ -19,8 +19,11 @@ RUN cd /home/java && \
 
 RUN cd /home/java/openjdk9 && make images
 
-RUN md /usr/local/openjdk9-${build} && \
-	cp -a build/linux-x86_64-normal-server-${build}/images/jdk /usr/local/openjdk9-${build}
+RUN mkdir /usr/local/openjdk9-${build} && \
+	cp -a /home/java/openjdk9/build/linux-x86_64-normal-server-${build}/images/jdk/* /usr/local/openjdk9-${build}
+
+ENV JAVA_HOME=/usr/local/openjdk9-${build}
+ENV PATH=$JAVA_HOME/bin:$PATH
 
 USER java
 WORKDIR /home/java
