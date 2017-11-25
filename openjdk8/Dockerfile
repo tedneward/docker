@@ -19,7 +19,7 @@ RUN cd /home/java && \
 	make images
 
 RUN mkdir /usr/local/openjdk8-${build} && \
-	cp -a /home/java/openjdk8/build/linux-x86_64-normal-server-${build}/images/jdk/* /usr/local/openjdk8-${build}
+	cp -a /home/java/openjdk8/build/linux-x86_64-normal-server-${build}/images/j2sdk-image/* /usr/local/openjdk8-${build}
 
 ENV JAVA_HOME=/usr/local/openjdk8-${build}
 ENV PATH=$JAVA_HOME/bin:$PATH
