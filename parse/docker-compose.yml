@@ -1,5 +1,4 @@
 # Still to add: 
-# - location for cloud code, pulling from Docker volume
 # - dynamic creation of config files for both server and dashboard?
 # - configuration for any sort of file hosting
 
