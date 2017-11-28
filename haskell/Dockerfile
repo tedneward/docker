@@ -3,7 +3,8 @@ MAINTAINER Ted Neward <ted@tedneward.com>
 
 RUN apt-get update && \
   apt-get install -y haskell-platform haskell-stack && \
-  stack upgrade
+  stack upgrade && \
+  stack setup
 
 RUN groupadd --gid 1000 ghc \
   && useradd --uid 1000 --gid ghc --shell /bin/bash --create-home ghc \
