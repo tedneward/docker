@@ -1,15 +1,17 @@
 FROM tedneward/haskell
 MAINTAINER Ted Neward <ted@tedneward.com>
 
-USER root
-RUN apt-get install -y git
-
-USER ghc
-RUN mkdir /home/ghc/carp && \
-  git clone https://github.com/carp-lang/Carp.git Carp.git && \
+RUN git clone https://github.com/carp-lang/Carp.git Carp.git && \
+  cd Carp.git && \
+  stack setup && \
+  stack upgrade --install-ghc && \
   stack build && \
   stack install
 
+ENV CARP_DIR=/home/ghc/Carp.git
+ENV PATH=$CARP_DIR/bin:$PATH
+
+USER root
 RUN mkdir /home/carp && chown ghc:ghc /home/carp
 
 USER ghc
