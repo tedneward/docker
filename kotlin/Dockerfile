@@ -16,5 +16,6 @@ RUN cd /tmp && \
   rm -rf /tmp/* /var/cache/apk/*
 
 RUN mkdir /home/kotlin
+WORKDIR /home/kotlin/work
 VOLUME ["/home/kotlin/work"]
 USER java
