@@ -1,0 +1,6 @@
+echo ********************************** Starting parse-server...
+$NPM_CONFIG_PREFIX/bin/parse-server --appId $PARSE_DASHBOARD_APP_ID --masterKey $PARSE_DASHBOARD_MASTER_KEY --databaseURI $MONGO_URI --cloud /home/parse/cloud/main.js &
+sleep 2s
+
+echo ********************************* Starting parse-dashboard...
+$NPM_CONFIG_PREFIX/bin/parse-dashboard

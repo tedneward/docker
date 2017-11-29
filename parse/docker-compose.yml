@@ -1,0 +1,31 @@
+# Still to add: 
+# - dynamic creation of config files for both server and dashboard?
+# - configuration for any sort of file hosting
+
+version: "3"
+services:
+    db:
+        image: mongo
+        ports: 
+            - "27017:27017"
+    parse-server:
+        build: .
+        #image: tedneward/parse
+        environment:
+            - MONGO_URI=mongodb://db/parse
+            - PARSE_DASHBOARD_SERVER_URL=http://localhost:1337/parse
+            - PARSE_DASHBOARD_APP_ID=DOCKER_PARSE
+            - PARSE_DASHBOARD_APP_NAME=DockerParse
+            - PARSE_DASHBOARD_MASTER_KEY=DA5AC2FF-8F44-4082-8E5C-A78F2A96ACAD
+            - FILE_KEY=1DAFE373-5D8A-4E7A-AD05-67C3BA0EDB64
+            - PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1
+            - PARSE_DASHBOARD_USER_ID=user
+            - PARSE_DASHBOARD_USER_PASSWORD=pass
+        links:
+            - db
+        ports:
+            - "1337:1337"
+            - "4040:4040"
+        volumes:
+            - ./cloud:/home/parse/cloud
+            - ./logs:/home/parse/logs
