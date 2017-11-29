@@ -14,3 +14,6 @@ RUN cd /tmp && \
   chmod +x ${KOTLIN_HOME}/bin/* && \
   ln -s "${KOTLIN_HOME}/bin/"* "/usr/bin/" && \
   rm -rf /tmp/* /var/cache/apk/*
+
+RUN mkdir /home/kotlin
+VOLUME ["/home/kotlin/work"]
