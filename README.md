@@ -25,11 +25,9 @@ This is a repository to store all of the "base" Dockerfiles I use. Any of my Doc
 * Java/Grails
 * Idris
 * Io
-* Java/JRuby
 * Julia (?)
 * Clojure/Leiningen
 * LLVM (?)
-* Neko/Haxe
 * Nim/Nimrod/whatever-they're-calling-it-today
 * Nu
 * OCaml
@@ -43,12 +41,5 @@ This is a repository to store all of the "base" Dockerfiles I use. Any of my Doc
 * SWI-Prolog
 * Java/VertX
 * Java/Yeti
-* Cassandra
-* CouchDB
 * Datomic
 * LevelDB
-* Neo4J
-* OrientDB
-* PostgresQL
-* MySQL
-* RethinkDB
