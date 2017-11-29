@@ -3,8 +3,10 @@ MAINTAINER Ted Neward <ted@tedneward.com>
 
 ENV KOTLIN_VERSION=1.2.0 KOTLIN_HOME=/usr/local/kotlin
 
+USER root
 RUN apt-get install --assume-yes openssl wget bash
 
+USER java
 RUN cd /tmp && \
   wget -k "https://github.com/JetBrains/kotlin/releases/download/v${KOTLIN_VERSION}/kotlin-compiler-${KOTLIN_VERSION}.zip" && \
   unzip "kotlin-compiler-${KOTLIN_VERSION}.zip" && \
