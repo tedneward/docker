@@ -1,20 +1,18 @@
-FROM tedneward/haskell
+FROM haskell:8.0.2
 MAINTAINER Ted Neward <ted@tedneward.com>
 
-RUN git clone https://github.com/carp-lang/Carp.git Carp.git && \
+# We need the C/C++ toolchain
+RUN apt-get update && apt-get install -y build-essential clang llvm
+
+RUN mkdir /home/carp && cd /home/carp && \
+  git clone https://github.com/carp-lang/Carp.git Carp.git && \
   cd Carp.git && \
-  stack setup && \
-  stack upgrade --install-ghc && \
   stack build && \
   stack install
 
-ENV CARP_DIR=/home/ghc/Carp.git
-ENV PATH=$CARP_DIR/bin:$PATH
+ENV PATH=~/.local/bin:$PATH
+ENV CARP_DIR=/home/carp/Carp.git
 
-USER root
-RUN mkdir /home/carp && chown ghc:ghc /home/carp
-
-USER ghc
 WORKDIR /home/carp
 VOLUME ["/home/carp/work"]
 
