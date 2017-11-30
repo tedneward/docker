@@ -1,10 +1,10 @@
 FROM tedneward/java
 MAINTAINER Ted Neward <ted@tedneward.com>
 
-ENV KOTLIN_VERSION=1.1.61 KOTLIN_HOME=/usr/local/kotlin
+ENV KOTLIN_VERSION=1.2.0 KOTLIN_HOME=/usr/local/kotlin
 
-RUN apt-get install --assume-yes openssl wget bash
-
+USER root
+RUN apt-get install -y openssl wget
 RUN cd /tmp && \
   wget -k "https://github.com/JetBrains/kotlin/releases/download/v${KOTLIN_VERSION}/kotlin-compiler-${KOTLIN_VERSION}.zip" && \
   unzip "kotlin-compiler-${KOTLIN_VERSION}.zip" && \
@@ -14,3 +14,8 @@ RUN cd /tmp && \
   chmod +x ${KOTLIN_HOME}/bin/* && \
   ln -s "${KOTLIN_HOME}/bin/"* "/usr/bin/" && \
   rm -rf /tmp/* /var/cache/apk/*
+
+RUN mkdir /home/kotlin
+WORKDIR /home/kotlin/work
+VOLUME ["/home/kotlin/work"]
+USER java
