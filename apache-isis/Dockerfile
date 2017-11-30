@@ -15,7 +15,6 @@ RUN mvn archetype:generate \
 WORKDIR /home/maven
 
 ENV EXPOSED_PORT 9090
-
-EXPOSE ${EXPOSED_PORT}
+EXPOSE 9090
 
 ENTRYPOINT ["/bin/bash"]
