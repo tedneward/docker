@@ -1,49 +1,23 @@
-
 version: "3"
 services:
-  # Notes for Cassandra from https://docs.docker.com/samples/library/cassandra/:
-  # If there is no database initialized when the container starts, then a default database will be created.
-  # While this is the expected behavior, this means that it will not accept incoming connections until such
-  # initialization completes. This may cause issues when using automation tools, such as docker-compose, 
-  # which start several containers simultaneously.
   cassandra:
     image: cassandra
     container_name: cassandra
     environment:
       - CASSANDRA_START_RPC=true
-      - CASSANDRA_CLUSTER_NAME=cass-cluster
+      - CASSANDRA_CLUSTER_NAME=casscluster
     ports: # Cassandra exposes 7000 7001 7199 9042 9160
+      - "7199:7199"
+      - "9042:9042"
       - "9160:9160"
-    volumes:
-      - ./cassdata:/var/lib/cassandra
-  # Notes for ElasticSearch:
-  # The same as Cassandra (startup times and such) may be true for ES; may need multiple "docker-compose up"
-  # before everything is initialized correctly?
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.0.0
-    container_name: elasticsearch
-    environment:
-      - cluster.name=elastic-cluster
-      - discovery.type=single-node
-    volumes:
-      - ./esdata:/usr/share/elasticsearch/data
-    ports:
-      - 9200:9200
-      - 9300:9300
+
   usergrid:
     build: .
+    #image: gaborwnuk/usergrid
+    environment:
+      - CASSANDRA_HOSTS=cassandra
+      - CASSANDRA_CLUSTER_NAME=casscluster
     links:
       - cassandra
-      - elasticsearch
-    environment:
-      - USERGRID_CLUSTER_NAME=ugcluster
-      - CASSANDRA_CLUSTER_NAME=cass-cluster
-      - CASSANDRA_HOSTS=cassandra
-      - ELASTICSEARCH_CLUSTER_NAME=elastic-cluster
-      - ELASTICSEARCH_HOSTS=elasticsearch
-      - SUPER_USER_EMAIL=ted@tedneward.com
-      - SUPER_USER_PASSWORD=password
-      - TEST_ADMIN_USER_EMAIL=ted@tedneward.com
-      - TEST_ADMIN_USER_PASSWORD=password
     ports:
-      - 8080:8080
+      - "8080:8080"
