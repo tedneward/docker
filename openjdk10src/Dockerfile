@@ -6,9 +6,7 @@ MAINTAINER Ted Neward (ted@tedneward.com)
 
 RUN \
   cd /home && \
-  hg clone http://hg.openjdk.java.net/jdk/jdk openjdk && \
-  cd openjdk && \
-  sh ./get_source.sh
+  hg clone http://hg.openjdk.java.net/jdk/jdk openjdk
 
 # TODO: Check out to the tag specified for OpenJDK10
 
@@ -18,7 +16,7 @@ RUN \
   bash ./configure --with-cacerts-file=/etc/ssl/certs/java/cacerts --with-debug-enabled
 
 RUN \ 
-  cd /home/openjdk9 && \
+  cd /home/openjdk && \
   make clean images && \
   cp -a build/linux-x86_64-normal-server-release/images/jdk /opt/openjdk10 && \
   find /opt/openjdk10 -type f -exec chmod a+r {} + && \
