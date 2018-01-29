@@ -1,15 +1,18 @@
-FROM tedneward/openjdk9
+FROM tedneward/openjdk8
 MAINTAINER Ted Neward (ted@tedneward.com)
+
+# May seem weird that openjdk9src depends on openjdk8; this is
+# because the build for OpenJDK9 depends on a OpenJDK8 boot JDK
 
 RUN \
   cd /home && \
-  hg clone http://hg.openjdk.java.net/jdk8u/jdk9 openjdk9 && \
+  hg clone http://hg.openjdk.java.net/jdk9/jdk9 openjdk9 && \
   cd openjdk9 && \
   sh ./get_source.sh
 
 # Run 'configure' with the boot JDK's path passed in
 RUN \
-  cd /home/openjdksrc/openjdk9 && \
+  cd /home/openjdk9 && \
   bash ./configure --with-cacerts-file=/etc/ssl/certs/java/cacerts --with-debug-enabled
 
 RUN \ 
