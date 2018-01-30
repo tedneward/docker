@@ -1,5 +1,8 @@
-FROM tedneward/openjdk8
+FROM tedneward/openjdk7
 MAINTAINER Ted Neward (ted@tedneward.com)
+
+# May seem weird that openjdk8src depends on openjdk7; this is
+# because the build for OpenJDK8 depends on a OpenJDK7 boot JDK
 
 RUN \
   cd /home && \
