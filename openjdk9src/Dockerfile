@@ -10,15 +10,16 @@ RUN \
   cd openjdk9 && \
   sh ./get_source.sh
 
-# Run 'configure' with the boot JDK's path passed in
+# Run 'configure' with the build type passed in
+ARG BUILD=fastdebug
 RUN \
   cd /home/openjdk9 && \
-  bash ./configure --with-cacerts-file=/etc/ssl/certs/java/cacerts --with-debug-enabled
+  bash ./configure --with-cacerts-file=/etc/ssl/certs/java/cacerts --with-debug-level=${BUILD}
 
 RUN \ 
   cd /home/openjdk9 && \
   make clean images && \
-  cp -a build/linux-x86_64-normal-server-release/images/jdk /opt/openjdk9 && \
+  cp -a build/linux-x86_64-normal-server-${BUILD}/images/jdk /opt/openjdk9 && \
   find /opt/openjdk9 -type f -exec chmod a+r {} + && \
   find /opt/openjdk9 -type d -exec chmod a+rx {} +
     
