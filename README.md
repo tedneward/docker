@@ -8,7 +8,6 @@ This is a repository to store all of the "base" Dockerfiles I use. Any of my Doc
 
 ## Images to build
 
-* Apache Usergrid: Cassandra, Java/Tomcat
 * Ceylon
 * Chaiscript
 * Dart
