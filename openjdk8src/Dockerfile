@@ -18,8 +18,11 @@ RUN \
 
 RUN \ 
   cd /home/openjdk8 && \
-  make clean images && \
-  cp -a build/linux-x86_64-normal-server-${BUILD}/images/jdk /opt/openjdk8 && \
+  make clean images
+
+RUN \
+  cd /home/openjdk8 && \
+  cp -a build/linux-x86_64-normal-server-${BUILD}/images/j2sdk-image /opt/openjdk8 && \
   find /opt/openjdk8 -type f -exec chmod a+r {} + && \
   find /opt/openjdk8 -type d -exec chmod a+rx {} +
     
