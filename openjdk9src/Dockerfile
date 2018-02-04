@@ -18,7 +18,10 @@ RUN \
 
 RUN \ 
   cd /home/openjdk9 && \
-  make clean images && \
+  make clean images
+
+RUN \
+  cd /home/openjdk9 && \
   cp -a build/linux-x86_64-normal-server-${BUILD}/images/jdk /opt/openjdk9 && \
   find /opt/openjdk9 -type f -exec chmod a+r {} + && \
   find /opt/openjdk9 -type d -exec chmod a+rx {} +
@@ -27,3 +30,4 @@ ENV PATH /opt/openjdk9/bin:$PATH
 ENV JAVA_HOME /opt/openjdk9
 
 CMD ["/bin/bash"]
+
