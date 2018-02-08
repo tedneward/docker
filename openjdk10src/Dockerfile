@@ -4,6 +4,11 @@ MAINTAINER Ted Neward (ted@tedneward.com)
 # May seem weird that openjdk10src depends on openjdk9; this is
 # because the build for OpenJDK10 depends on a OpenJDK9 boot JDK
 
+# OpenJDK doesn't use generated configure script anymore; it uses autoconf
+# Libfontconfig1-dev should be installed by openjdkbase, but... ?
+RUN \
+  apt-get install -y autoconf libfontconfig1-dev
+
 RUN \
   cd /home && \
   hg clone http://hg.openjdk.java.net/jdk/jdk openjdk
