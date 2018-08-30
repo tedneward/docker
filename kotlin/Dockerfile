@@ -1,7 +1,7 @@
 FROM tedneward/java
 MAINTAINER Ted Neward <ted@tedneward.com>
 
-ENV KOTLIN_VERSION=1.2.21 KOTLIN_HOME=/usr/local/kotlin
+ENV KOTLIN_VERSION=1.2.61 KOTLIN_HOME=/usr/local/kotlin
 
 USER root
 RUN apt-get install -y openssl wget
